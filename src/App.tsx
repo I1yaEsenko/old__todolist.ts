@@ -3,6 +3,7 @@ import s from './css/main.module.css'
 import Todolist from "./components/Todolist";
 import {v1} from "uuid";
 import {AddItemForm} from "./components/AddItemForm";
+import todolist from "./components/Todolist";
 
 export type filterValueType = 'all' | 'completed' | 'active'
 
@@ -70,13 +71,22 @@ function App() {
       delete tasks[todolistId]
    }
 
+   const changeTodolistTitle = (todolistId:string, newTitle:string) =>{
+      setTodolists(todolists.map(m=> m.id === todolistId ? {...m, title: newTitle}: m))
+   }
+
    const checkedTaskStatus = (todolistId: string, pId: string, isDone: boolean) => {
       setTasks({...tasks, [todolistId]: tasks[todolistId].map(m => m.id === pId ? {...m, isDone} : m)})
+   }
+
+   const changeTaskTitle = (todolistId: string, pId: string, newTitle: string) => {
+      setTasks({...tasks, [todolistId]: tasks[todolistId].map(m => m.id === pId ? {...m, title: newTitle} : m)})
    }
 
    const changeFilter = (value: filterValueType, todolistId: string) => {
       setTodolists(todolists.map(m => m.id === todolistId ? {...m, filter: value} : m))
    }
+
 
    return (
       <div className={s.mainBody}>
@@ -106,6 +116,8 @@ function App() {
                         filter={tl.filter}
                         checkedTaskStatus={checkedTaskStatus}
                         removeTodolist={removeTodolist}
+                        changeTaskTitle={changeTaskTitle}
+                        changeTodolistTitle={changeTodolistTitle}
                      />
                   })
                }
