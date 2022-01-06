@@ -1,0 +1,143 @@
+.taskBody {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #e8e6e6;
+    border-radius: 10px;
+    box-shadow: rgba(163, 163, 163, 0.74) 7px 6px 8px -1px;
+    margin: 5px;
+    display: grid;
+    justify-items: stretch;
+
+}
+
+.tasksTitle {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-family: Hack, sans-serif;
+    text-shadow: rgba(163, 163, 163, 0.44) 5px 1px 4px;
+    margin: 3px 0;
+}
+
+.taskTitleDone {
+    opacity: 0.3;
+}
+
+.taskForm {
+    border: 1px solid #f8f8f8;
+    width: 256px;
+    height: 32px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin: 0 0 20px 0;
+}
+
+.taskForm:hover {
+    border-color: #c3c3c3;
+}
+
+.taskFormError {
+    border: 1px solid red;
+}
+
+.taskFormError:hover {
+    border: 1px solid red;
+}
+
+.errorMassage {
+    margin: 0 0 0 10px;
+    padding: 2px 0 0 0;
+    font-size: 12px;
+    color: red;
+}
+
+.taskInput {
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin: 0;
+    outline: none;
+    height: 30px;
+    vertical-align: top;
+    background-color: #f2f2f2;
+    color: #282c34;
+    font-size: 14px;
+    padding: 0 20px 0 10px;
+    width: 226px;
+    font-style: italic;
+}
+
+.taskInput::placeholder {
+    font-family: Hack, sans-serif;
+    color: #282c34;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.taskButtonOdd {
+    width: 28px;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 30px;
+    color: #4f432e;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.tasksList {
+    margin: 0 0 5px 0;
+}
+
+.taskTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 5px 0;
+    font-family: Hack, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 600;
+    flex: 1 1 auto;
+}
+
+.buttonItems {
+    display: grid;
+    justify-items: center;
+
+}
+
+.buttonDelete {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.5s ease;
+    margin: 2px 5px;
+}
+
+.buttonCondition {
+    max-width: 100px;
+    width: 100%;
+    font-family: Hack, sans-serif;
+    font-size: 12px;
+    margin: 2px 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.buttonConditionActive {
+    background-color: #888888;
+}
+

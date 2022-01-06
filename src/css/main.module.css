@@ -1,0 +1,51 @@
+.mainBody {
+    background-color: #f8f8f8;
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.mainWrapper {
+
+}
+
+.mainInputBody {
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.mainInput {
+    width: 450px;
+    margin: 0 auto;
+    border: 1px solid #c3c3c3;
+    outline: none;
+    border-radius: 20px;
+    min-height: 50px;
+    line-height: 28px;
+    padding: 11px 15px;
+    color: rgba(5, 4, 4, 0.8);
+    font-family: Hack, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.mainInput::placeholder {
+    font-family: Hack, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.mainAddButton {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.taskWrapper {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+
+}
