@@ -24,7 +24,7 @@ export function AddItemForm(props: AddItemFormPropsType) {
    }
 
    return (
-      <div className={error ? s.taskForm + ' ' + s.taskFormError : s.taskForm}>
+      <div className={error ? `${s.taskForm} ${s.taskFormError}` : s.taskForm}>
          <Input
             className={s.taskInput}
             title={title}
