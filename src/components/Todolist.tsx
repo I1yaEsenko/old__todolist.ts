@@ -22,10 +22,8 @@ type taskPropsType = {
 
 function Todolist(props: taskPropsType) {
 
-   //удаление таски
    const removeTaskHandler = (tasksId: string) => {
       props.removeTask(props.todolistId, tasksId)
-
    }
 
    const checkedTaskHandler = (e: ChangeEvent<HTMLInputElement>, tasksId:string) => {
@@ -38,7 +36,6 @@ function Todolist(props: taskPropsType) {
 
 
    const newTaskList = props.tasks.map(p => {
-
       return (
          <li className={p.isDone ? s.taskTitle + ' ' + s.taskTitleDone : s.taskTitle}>
             <input type="checkbox" onChange={(e) => checkedTaskHandler(e,p.id)} checked={p.isDone}/>
