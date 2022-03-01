@@ -1,7 +1,6 @@
 import {TasksStateType} from "../App";
-import exp from "constants";
-import todolist from "../components/Todolist";
 import {v1} from "uuid";
+import {AddTodolistACType} from "./TodolistReducer";
 
 
 export const TaskReducer = (state: TasksStateType, action: GeneralType) => {
@@ -26,22 +25,20 @@ export const TaskReducer = (state: TasksStateType, action: GeneralType) => {
          return {...state, [action.payload.todolistId]: state[action.payload.todolistId]
                .map(m => m.id === action.payload.taskId? {...m, title:action.payload.title}: m)}
       }
-      case "ADD-NEW-TITLE-TODOLIST":{
+      case "ADD-TODOLIST":{
          return {...state, [action.payload.todolistId]:[]}
-      }
+}
       default:
          return state
    }
 }
 
-type GeneralType = RemoveTaskACType | AddTaskACType | CheckedTaskStatusACType | ChengeTaskTitleACType | AddNewTitleTodolistACType
+type GeneralType = RemoveTaskACType | AddTaskACType | CheckedTaskStatusACType | ChangeTaskTitleACType | AddTodolistACType
 
 type RemoveTaskACType = ReturnType<typeof removeTaskAC>
 type AddTaskACType = ReturnType<typeof addTaskAC>
-type AddNewTitleTodolistACType = ReturnType<typeof addNewTodolistAC>
 type CheckedTaskStatusACType = ReturnType<typeof checkedTaskStatusAC>
-type ChengeTaskTitleACType = ReturnType<typeof changeTitleTaskAC>
-
+type ChangeTaskTitleACType = ReturnType<typeof changeTitleTaskAC>
 
 export const removeTaskAC = (todolistId: string, id: string) => {
    return {
@@ -85,11 +82,11 @@ export const changeTitleTaskAC = (todolistId: string, taskId:string, title:strin
   } as const
 }
 
-export const addNewTodolistAC = (newTodolistId: string) => {
-   return {
-      type: 'ADD-NEW-TITLE-TODOLIST',
-      payload: {
-         todolistId: newTodolistId,
-               }
-   } as const
-}
+// export const addNewTodolistAC = (newTodolistId: string) => {
+//    return {
+//       type: 'ADD-NEW-TITLE-TODOLIST',
+//       payload: {
+//          todolistId: newTodolistId,
+//                }
+//    } as const
+// }

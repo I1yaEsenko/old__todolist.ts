@@ -4,7 +4,6 @@ import Todolist from "./components/Todolist";
 import {v1} from "uuid";
 import {AddItemForm} from "./components/AddItemForm";
 import {
-   addNewTodolistAC,
    addTaskAC,
    changeTitleTaskAC,
    checkedTaskStatusAC,
@@ -18,6 +17,7 @@ import {
    removeTodolistAC,
    TodolistReducer
 } from "./reducers/TodolistReducer";
+import todolist from "./components/Todolist";
 
 export type filterValueType = 'all' | 'completed' | 'active'
 
@@ -69,12 +69,12 @@ function App() {
       // let newTodolist: TaskType = {id: v1(), title, filter: 'all'}
       // setTodolists([newTodolist, ...todolists])
       // setTasks({...tasks, [newTodolist.id]: []})
-      let newTodolistId = v1();
+      // let newTodolistId = v1();
 
-      todolistsDispatch(addTodolistAC(newTodolistId, title))
-      tasksDispatch(addNewTodolistAC(newTodolistId))
+      todolistsDispatch(addTodolistAC(title))
+   // tasksDispatch(addTodolistAC(title))
+      // tasksDispatch(addNewTodolistAC(newTodolistId))
    }
-
    const removeTodolist = (todolistId: string) => {
       // setTodolists(todolists.filter(f => f.id !== todolistId))
       // delete tasks[todolistId]
@@ -92,6 +92,7 @@ function App() {
       // let newTask = {id: v1(), title, isDone: false}
       // setTasks({...tasks, [todolistId]: [newTask, ...tasks[todolistId]]})
       tasksDispatch(addTaskAC(todolistId, title))
+      tasksDispatch(addTodolistAC(todolistId))
    }
 
    const removeTask = (todolistId: string, id: string) => {

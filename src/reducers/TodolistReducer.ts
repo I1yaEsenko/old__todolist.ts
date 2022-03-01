@@ -6,7 +6,7 @@ import todolist from "../components/Todolist";
 export const TodolistReducer = (state: Array<TaskType>, action: GeneralType) => {
    switch (action.type) {
       case 'ADD-TODOLIST': {
-         let newTodolist: TaskType = {id: action.payload.id, title: action.payload.title, filter: 'all'}
+         let newTodolist: TaskType = {id: action.payload.todolistId, title: action.payload.title, filter: 'all'}
          return [newTodolist, ...state]
       }
       case "REMOVE-TODOLIST": {
@@ -27,16 +27,16 @@ type GeneralType = AddTodolistACType
    | changeTitleTodolistACType
    | changeFilterACType
 
-type AddTodolistACType = ReturnType<typeof addTodolistAC>
+export type AddTodolistACType = ReturnType<typeof addTodolistAC>
 type RemoveTodolistACType = ReturnType<typeof removeTodolistAC>
 type changeTitleTodolistACType = ReturnType<typeof changeTitleTodolistAC>
 type changeFilterACType = ReturnType<typeof changeFilterAC>
 
-export const addTodolistAC = (id:string, title: string) => {
+export const addTodolistAC = (title: string) => {
    return {
       type: 'ADD-TODOLIST',
       payload: {
-         id:id,
+         todolistId: v1(),
          title: title
       }
    } as const
